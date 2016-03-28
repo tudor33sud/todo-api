@@ -13,7 +13,7 @@ app.get('/',function(req, res){
 	res.send('Todo API Root');
 });
 
-// GET /todos
+// GET /todos?completed=true&q=work
 app.get('/todos',function(req, res){
 	var queryParams = req.query;
 	var filteredTodos = todos ;
@@ -28,6 +28,15 @@ app.get('/todos',function(req, res){
 			res.status(400).send();
 			return;
 		}
+	}
+
+	if(queryParams.hasOwnProperty('q') && queryParams.q.trim().length > 0){
+		filteredTodos = _.filter(filteredTodos, function(todo){
+			if(todo.description.toLowerCase().indexOf(queryParams.q.toLowerCase())>-1){
+				return true;
+			}
+			return false;
+		});
 	}
 	res.json(filteredTodos);
 });
