@@ -39,34 +39,6 @@ app.get('/todos', function(req, res) {
 		res.status(500).send();
 	});
 
-
-	// var filteredTodos = todos;
-
-	// if (queryParams.hasOwnProperty('completed')) {
-
-	// 	if (queryParams.completed === 'true') {
-	// 		filteredTodos = _.where(filteredTodos, {
-	// 			completed: true
-	// 		});
-	// 	} else if (queryParams.completed === 'false') {
-	// 		filteredTodos = _.where(filteredTodos, {
-	// 			completed: false
-	// 		});
-	// 	} else {
-	// 		res.status(400).send();
-	// 		return;
-	// 	}
-	// }
-
-	// if (queryParams.hasOwnProperty('q') && queryParams.q.trim().length > 0) {
-	// 	filteredTodos = _.filter(filteredTodos, function(todo) {
-	// 		if (todo.description.toLowerCase().indexOf(queryParams.q.toLowerCase()) > -1) {
-	// 			return true;
-	// 		}
-	// 		return false;
-	// 	});
-	// }
-	// res.json(filteredTodos);
 });
 
 // GET /todos/:id
